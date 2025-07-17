@@ -5,7 +5,7 @@ def get_connection():
         host="localhost",
         user="root",
         password="root@12345",
-        database="sweet_shop" # Ensure this matches your database name
+        database="sweet_shop" # Ensure this matches your database name In your side it should be diffrent
     )
 
 def get_all_sweets(query='', sort_by='id'):
