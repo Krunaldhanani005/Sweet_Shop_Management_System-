@@ -27,3 +27,12 @@ def add_sweet(sweet):
     conn.commit()
     cursor.close()
     conn.close()
+
+def delete_sweet(sweet_id):
+    conn = get_connection()
+    cursor = conn.cursor()
+    sql = "DELETE FROM sweets WHERE id = %s"
+    cursor.execute(sql, (sweet_id,))
+    conn.commit()
+    cursor.close()
+    conn.close()
