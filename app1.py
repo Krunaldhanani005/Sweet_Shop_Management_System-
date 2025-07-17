@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from db import get_all_sweets, add_sweet, delete_sweet
+from db import get_all_sweets, add_sweet, delete_sweet, purchase_sweet
 import mysql.connector
 
 app = Flask(__name__)
@@ -32,6 +32,13 @@ def add():
 def delete(sweet_id):
     delete_sweet(sweet_id)
     return redirect(url_for('index'))
+
+@app.route('/purchase/<sweet_id>', methods=['POST'])    #Purchases a sweet from the shop.
+def purchase(sweet_id):
+    qty = int(request.form['qty'])
+    purchase_sweet(sweet_id, qty)
+    return redirect(url_for('index'))
+
 
 
 if __name__ == '__main__':

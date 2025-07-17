@@ -60,10 +60,16 @@
                     <td>{{ sweet.price }}</td>
                     <td>{{ sweet.quantity }}</td>
                     <td>
+                        <!-- Form to purchase sweet -->
+                        <form action="{{ url_for('purchase', sweet_id=sweet.id) }}" method="post" style="display:inline;">
+                            <input type="number" name="qty" min="1" max="{{ sweet.quantity }}" required>
+                            <button type="submit" class="btn btn-success">Purchase</button>
+                        </form>
                         <!-- Form to delete sweet -->
                         <form action="{{ url_for('delete', sweet_id=sweet['id']) }}" method="post" style="display:inline;">
                             <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
                         </form>
+
                     </td>    
                 </tr>
                 {% endfor %}
