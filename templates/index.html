@@ -26,6 +26,30 @@
             <input type="number" name="quantity" placeholder="Quantity" required>
             <button type="submit" class="btn btn-primary">Add Sweet</button>
         </form>
+         <table class="table">                <!-- Table displaying list of sweets -->
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sweet in sweets %}
+                <tr>
+                    <td>{{ sweet.id }}</td>
+                    <td>{{ sweet.name }}</td>
+                    <td>{{ sweet.category }}</td>
+                    <td>{{ sweet.price }}</td>
+                    <td>{{ sweet.quantity }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     </div>
 </body>
 </html>
