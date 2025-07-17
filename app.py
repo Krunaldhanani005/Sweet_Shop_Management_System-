@@ -45,7 +45,7 @@ def restock(sweet_id):
     restock_sweet(sweet_id, qty)
     return redirect(url_for('index'))
 
-
+#run the Flask application
 
 if __name__ == '__main__':
     app.run(debug=True)
