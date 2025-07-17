@@ -45,3 +45,12 @@ def purchase_sweet(sweet_id, qty):
     conn.commit()
     cursor.close()
     conn.close()   
+
+def restock_sweet(sweet_id, qty):
+    conn = get_connection()
+    cursor = conn.cursor()
+    sql = "UPDATE sweets SET quantity = quantity + %s WHERE id = %s"
+    cursor.execute(sql, (qty, sweet_id))
+    conn.commit()
+    cursor.close()
+    conn.close()
