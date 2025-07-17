@@ -26,6 +26,20 @@
             <input type="number" name="quantity" placeholder="Quantity" required>
             <button type="submit" class="btn btn-primary">Add Sweet</button>
         </form>
+
+        <h3 class="mt-5">Available Sweets</h3>     <!-- Search & Sort Section -->
+        <form method="get" class="mb-3">
+            <input type="text" name="q" placeholder="Search..." value="{{ query }}">
+            <select name="sort">
+                <option value="id" {% if sort_by == 'id' %}selected{% endif %}>Sort by ID</option>
+                <option value="name" {% if sort_by == 'name' %}selected{% endif %}>Sort by Name</option>
+                <option value="category" {% if sort_by == 'category' %}selected{% endif %}>Sort by Category</option>
+                <option value="price" {% if sort_by == 'price' %}selected{% endif %}>Sort by Price</option>
+                <option value="quantity" {% if sort_by == 'quantity' %}selected{% endif %}>Sort by Quantity</option>
+            </select>
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </form>
+
          <table class="table">                <!-- Table displaying list of sweets -->
             <thead>
                 <tr>
